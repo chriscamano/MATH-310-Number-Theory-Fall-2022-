@@ -38,7 +38,39 @@ $\mbox{}$
 \begin{enumerate}
 
 \item In your group, remind each other about tests for divisibility by 2, 3, and 5.
-Prove that these tests work.
+Prove that these tests work.\\
+
+  Proof for the divisibility of three statement:
+  Let $n \in \Z$ be expressed in its base 10 representation:
+  \[
+    n=a_k10^k+a_{k-1}10^{k-1}+\cdots+a_110+a_010^0=\sum_{i=0}^ka_i10^i
+  \]
+  Argument: if $$3| \sum_{i=0}^ka_i \rightarrow  3|\sum_{i=0}^ka_i10^i$$\\
+  \[
+    \sum_{i=0}^ka_i10^i=\sum_{i=0}^ka_i10^i
+  \]
+  \[
+    \sum_{i=0}^ka_i10^i=\sum_{i=0}^ka_i(1+10^i-1)
+  \]
+  \[
+    \sum_{i=0}^ka_i10^i=\sum_{i=0}^ka_i+\sum_{i=0}^ka_i(10^i-1)
+  \]\\\\
+Since $3| \sum_{i=0}^ka_i$ this implies $3| \sum_{i=0}^ka_i=3m,m\in \Z$\\
+Also note that: \[
+  \forall i\in \Z \quad 3|(10^i-1)
+\]
+Since \[
+  (10^i-1)=\sum_{k=0}^{i-1}9(10^k)=3(\sum_{k=0}^{i-1}3(10^k))=3n,n \in \Z
+\]
+Using these s we can now express the $(10^i-1)$ as a multiple of 3 in the following way and subsitute the sum of the coeffients by the original argument:
+
+\[
+  \sum_{i=0}^ka_i10^i=3m+\sum_{i=0}^ka_i3n
+\]
+\[
+    \sum_{i=0}^ka_i10^i=3(m+\sum_{i=0}^ka_in)
+\]
+Thus we have shown that $\sum_{i=0}^ka_i10^i$ must also be divisible by three.
 
 \item Let $a, b, c \in \Z$ with $c \ne 0$.
 Prove that if $c \mid a$ and $c \mid b$ then $c \mid (ax+by)$ for any $x, y \in \Z$.\\\\
