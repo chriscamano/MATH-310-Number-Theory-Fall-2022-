@@ -45,10 +45,7 @@ Prove that these tests work.\\
   \[
     n=a_k10^k+a_{k-1}10^{k-1}+\cdots+a_110+a_010^0=\sum_{i=0}^ka_i10^i
   \]
-  Argument: if $$3| \sum_{i=0}^ka_i \rightarrow  3|\sum_{i=0}^ka_i10^i$$\\
-  \[
-    \sum_{i=0}^ka_i10^i=\sum_{i=0}^ka_i10^i
-  \]
+  Argument:  $$\text{if } 3| \sum_{i=0}^ka_i \rightarrow  3|\sum_{i=0}^ka_i10^i$$\\
   \[
     \sum_{i=0}^ka_i10^i=\sum_{i=0}^ka_i(1+10^i-1)
   \]
@@ -84,7 +81,13 @@ Prove that if $c \mid a$ and $c \mid b$ then $c \mid (ax+by)$ for any $x, y \in 
 \item
 \begin{enumerate}[(a)]
   \item Why is the fraction $\frac{a}{0}$ ``undefined'' for $a \ne 0$?\\\\
-  Since the product of any number and zero is zero there is no defined solution for the inverse of multiplication which is division. Assigning a value $\alpha$ to $\frac{a}{0}$ would be akin to making the argument that a*0 = $\alpha$. The mapping of a number to zero under multiplcation is a surjective function, therefore because is is not bijective there does not exist an inverse. In this case that inverse would be division. \\\\
+  Since the product of any number and zero is zero there is no defined solution for the inverse of multiplication which is division. Assigning a value $\alpha$ to $\frac{a}{0}$ would be akin to making the argument that $\alpha$*0 = 0 Which contradicts the original notion that a does not equal zero\\\\. Consider the following:
+\[
+  f:\mathbb{R} \mapsto \{0\}\quad f(x)=0*x
+\]
+f is not bijective therefore there does not exist an inverse. In this case division by zero.
+
+
   \item Why is $\frac{0}{0}$ ``indeterminate?''
   \\\\
   $\frac{0}{0}$ is indeterminate because it can represent infinite different answers. For example consider the case in which   $\frac{0}{0}$ assumes a finite value $\beta$. This implies that \[
