@@ -81,7 +81,7 @@ Prove that if $c \mid a$ and $c \mid b$ then $c \mid (ax+by)$ for any $x, y \in 
 \item
 \begin{enumerate}[(a)]
   \item Why is the fraction $\frac{a}{0}$ ``undefined'' for $a \ne 0$?\\\\
-  Since the product of any number and zero is zero there is no defined solution for the inverse of multiplication which is division. Assigning a value $\alpha$ to $\frac{a}{0}$ would be akin to making the argument that $\alpha$*0 = 0 Which contradicts the original notion that a does not equal zero\\\\. Consider the following:
+  Since the product of any number and zero is zero there is no defined solution for the inverse of multiplication which is division. Assigning a value $\alpha$ to $\frac{a}{0}$ would be akin to making the argument that $\alpha$*0 = 0 Which contradicts the original notion that a does not equal zero\\\\ Consider the following:
 \[
   f:\mathbb{R} \mapsto \{0\}\quad f(x)=0*x
 \]
@@ -109,19 +109,38 @@ Come up with a precise mathematical statement for the division algorithm and pro
    - The resulting quotient and remainder can be used to re-express the dividend.
    \\\\
    Expressed symbolically:
-   Given two integers n and m $\in \mathbb{Z}, m \neq 0$
+   Given two integers n and m $\in \mathbb{N}, m \neq 0$
    \[
-     \exists ! \quad q,r \in \mathbb{Z} : n= qm+r, 0 \leq r <b
+     \exists ! \quad q,r \in \mathbb{N} : n= qm+r, 0 \leq r <b
    \]
    To prove this statement we will have to prove both existence and uniqueness.
    \textbf{Existence}:
-   Given that n and m are integers the operation of $\frac{n}{m}$
+  Let $ a \in \mathbb{N}$ and define a set A as :
+  \[
+    A=\{x\in \mathbb{N}:t(b)>a\}
+  \]
+  A is a nonempty subset of the natural numbers, thus by the well ordering principle there is a smallest element in A. Let $x_0$ be this smallest element.
+  \begin{align*}
+    &\text{Let }r=a-qb\\
+    &a=qb+a-qb\\
+  \end{align*}
+  We now consider the case where
    \\\\
+   \textbf{Uniqueness}
 \end{proof}
 
 \item Come up with a definition of the \emph{greatest common divisor} of two integers.
 There are various ways to define the gcd; discuss advantages and disadvantages in your group.
-
+Eucldian algorithm
+\begin{align*}
+&294=193(1)+101\\
+&193=101(1)+92\\
+&101=92(1)+9\\
+&92=9(10)+2\\
+&9=2(4)+1\\
+&2=1(2)+0\\
+\end{align*}
+gcd(294,193)=1
 \item Pick two 3-digit positive integers $a > b$ and run the division algorithm when $b$ is divided into $a$.
 Run the algorithm again when the remainder is divided into $b$; repeat until you get remainder 0.
 What are you computing? Why?

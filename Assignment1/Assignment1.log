@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.8.21)  29 AUG 2022 08:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.8.21)  29 AUG 2022 14:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -332,51 +332,202 @@ Underfull \hbox (badness 10000) in paragraph at lines 104--113
  []
 
 
-./Assignment1.tex:120: LaTeX Error: \begin{enumerate} on input line 38 ended by
+./Assignment1.tex:123: LaTeX Error: Environment align* undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.123   \begin{align*}
+                      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./Assignment1.tex:124: Misplaced alignment tab character &.
+l.124     &
+           \text{Let }r=a-qb\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./Assignment1.tex:124: Undefined control sequence.
+l.124     &\text
+                {Let }r=a-qb\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Assignment1.tex:125: Misplaced alignment tab character &.
+<recently read> &
+                 
+l.125     &
+           a=qb+a-qb\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+./Assignment1.tex:126: LaTeX Error: \begin{enumerate} on input line 38 ended by
+ \end{align*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.126   \end{align*}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./Assignment1.tex:130: LaTeX Error: \begin{enumerate} on input line 38 ended by
  \end{proof}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.120 \end{proof}
+l.130 \end{proof}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--121
+Underfull \hbox (badness 10000) in paragraph at lines 121--131
 
  []
 
+[2]
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--121
+./Assignment1.tex:135: LaTeX Error: Environment align* undefined.
 
- []
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.135 \begin{align*}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
 
-[2] [3] (./Assignment1.aux) ) 
+./Assignment1.tex:136: Misplaced alignment tab character &.
+l.136 &
+       294=193(1)+101\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./Assignment1.tex:137: Misplaced alignment tab character &.
+<recently read> &
+                 
+l.137 &
+       193=101(1)+92\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./Assignment1.tex:138: Misplaced alignment tab character &.
+<recently read> &
+                 
+l.138 &
+       101=92(1)+9\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./Assignment1.tex:139: Misplaced alignment tab character &.
+<recently read> &
+                 
+l.139 &
+       92=9(10)+2\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./Assignment1.tex:140: Misplaced alignment tab character &.
+<recently read> &
+                 
+l.140 &
+       9=2(4)+1\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+./Assignment1.tex:141: Misplaced alignment tab character &.
+<recently read> &
+                 
+l.141 &
+       2=1(2)+0\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+./Assignment1.tex:142: LaTeX Error: \begin{enumerate} on input line 38 ended by
+ \end{align*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.142 \end{align*}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[3] (./Assignment1.aux) ) 
 Here is how much of TeX's memory you used:
- 2725 strings out of 478542
- 38676 string characters out of 5854402
+ 2726 strings out of 478542
+ 38685 string characters out of 5854402
  332122 words of memory out of 5000000
- 20593 multiletter control sequences out of 15000+600000
+ 20594 multiletter control sequences out of 15000+600000
  430567 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,5n,70p,345b,186s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2021/texmf-dist/fonts/enc/dvips/base/8
-r.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}<c:/
-texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2
-021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/font
-s/type1/public/mathpazo/fplmbb.pfb><c:/texlive/2021/texmf-dist/fonts/type1/publ
-ic/mathpazo/fplmr.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/mathpazo/f
-plmri.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb><c:/te
-xlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb><c:/texlive/2021
-/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb><c:/texlive/2021/texmf-dist/fon
-ts/type1/urw/palatino/uplr8a.pfb><c:/texlive/2021/texmf-dist/fonts/type1/urw/pa
-latino/uplri8a.pfb>
-Output written on Assignment1.pdf (3 pages, 139326 bytes).
+ 61i,5n,70p,344b,186s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.en
+c}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}<c:/texl
+ive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/ty
+pe1/public/mathpazo/fplmbb.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/m
+athpazo/fplmr.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/mathpazo/fplmr
+i.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb><c:/texliv
+e/2021/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb><c:/texlive/2021/tex
+mf-dist/fonts/type1/urw/palatino/uplb8a.pfb><c:/texlive/2021/texmf-dist/fonts/t
+ype1/urw/palatino/uplr8a.pfb><c:/texlive/2021/texmf-dist/fonts/type1/urw/palati
+no/uplri8a.pfb>
+Output written on Assignment1.pdf (3 pages, 140921 bytes).
 PDF statistics:
  71 PDF objects out of 1000 (max. 8388607)
  43 compressed objects within 1 object stream
