@@ -1,0 +1,296 @@
+\documentclass[11pt]{article}
+\usepackage{amsthm}
+\usepackage{amssymb,latexsym,enumerate,graphicx}
+\usepackage[sc]{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage{empheq}
+\usepackage{amsmath}
+\hoffset=0in
+\voffset=0in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=0in
+\textwidth=6.5in
+\textheight=8.6in
+
+\def\Z{\mathbb{Z}}
+\def\N{\mathbb{N}}
+\def\sage{{\tt sage} }
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+\newcommand{\boxedeq}[2]{\begin{empheq}[box={\fboxsep=6pt\fbox}]{align}\label{#1}#2\end{empheq}}
+\pagestyle{empty}
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.2cm}
+
+$\mbox{}$
+\vspace{-1in}
+
+{\sc 2022 Math 310: Number Theory} \hfill {\tt https://matthbeck.github.io/310.html}
+
+\vspace{.1in}
+\Author{Chris Camaño, Kayla <>, Karly Long, Nicole Snow, Pim <>}
+\begin{center}
+\Large{Worksheet 1: Euclidean Algorithm}
+\end{center}
+
+\begin{enumerate}
+  \setItemnumber{7}
+ \setItemnumber{7}
+  \item Let $a, b \in \Z$, not both zero.
+  Prove that there exist $x, y \in \Z$ such that
+  \[
+    ax+by = \gcd(a,b) \, .
+  \]
+  More generally, prove that
+  \[
+    ax+by = c
+  \]
+  has a solution $(x,y) \in \Z^2$ if and only if $\gcd(a,b) \mid c$.\\\\
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \textbf{ If gcd(a,b)$|c$ then there exist x,y$\in \Z$ such that ax+by=c}
+    \begin{proof}
+     Let S=$\{am+bn>0,m,n\in \Z\}$ S is nonempty and $s\subset \N$ so by the well ordering principle there exists a smallest element denoted$S_{\min}$.\\
+     \textbf{Lemma: $S_{\min}$=gcd(a,b)}
+     \begin{proof}
+           To prove that $S_{\min}$=gcd(a,b) then we must first show that $S_{\min}$ is a common divisor of a and b and that if there exist other common divisors that $S_{\min}$ is greater. \\\\
+           Suppose for the sake of contradiction that $S_{\min}\nmid a$ then by the division algorithm a can be expressed as the following:
+           \[
+             a=S_{\min}q+r\quad 0\leq r <S_{\min}
+           \]
+           \begin{align*}
+             &S_{\min}\in S \therefore S_{\min}=am^*+bn^*\\
+             &a=(am^*+bn^*)q+r\\
+             &r=a-(am^*+bn^*)q\\
+             &r=a-am^*q+bn^*q\\
+             &r=a(1-qm^*)+b(-qn^*)
+           \end{align*}
+           Which implies that $r\in S$ since $r>0$ by construction, however by the division algorithm $r<S_{\min}$ which contradicts the statement $S_{\min}$ is the smallest element meaning that $S_{\min}$ must divide a, and by a symmetric proof $S_{\min}$ must divide b.
+           \\\\
+           Let $e|a$ and $e|b$ then by the definition of divisibility:
+           \begin{align*}
+            &a=ek,k\in \Z\\
+            &b=el,l\in \Z\\
+            &S_{\min}=am^*+bn^*\\
+            &S_{\min}=ekm^*+eln^*\\
+            &S_{\min}=e(km^*+ln^*)\\
+            &e|S_{\min}
+           \end{align*}
+           So it is shown that $S_{\min}=gcd(a,b)$
+         \end{proof}
+         If $S_{\min}=gcd(a,b)$ then since $gcd(a,b)|c$, $S_{\min}|c$ which implies:
+        \begin{align*}
+          &c=S_{\min}k,k\in \Z\\
+          &c=(am^*+bn^*)k\\
+          &c=am^*k+bn^*k\\
+          &c=a(m^*k)+b(n^*k)\\
+        \end{align*}
+        So we have shown the existence of integer multiples x and y such that c=ax+by
+    \end{proof}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \textbf{If ax+by=c then gcd(a,b)|c}\\\\
+    Let d=gcd(a,b) then by the definition of gcd $d|a$ and $d|b$. This implies:
+   \[
+       c=(dk)x+(dl)y=d(kx+ly),\quad k,l\in \Z
+   \]
+    Hence, d|c.
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \setItemnumber{8}
+  \item Andrews 2.3.1.\\
+  The linear Diophantine equation has a solution if and only if $gcd(a,b)|c$ for those with solutions the general form of the solution set takes the following form:
+  \[
+    x=x_0+t\frac{b}{gcd(a,b)}\quad y=y_0-t\frac{a}{gcd(a,b)}\quad t\in \Z
+  \]
+  Starting points computed computationally using c++.
+    \begin{enumerate}
+        \item \textbf{2x+3y=4}
+        \begin{align*}
+         &a=2 \quad b=3\quad gcd(a,b)=1\\
+         &(x_0,y_0)=(-10,8)
+        \end{align*}
+        General solution follows the form:
+        \[
+           x=-10+t\frac{3}{1}\quad y=8-t\frac{2}{1}
+        \]
+        \boxedeq{}{ x=-10+3t\quad y=8-2t }
+
+        %~~~~~~~~~~~~~~~~~~~~~~
+        \item \textbf{17x+19y=23}
+        \begin{align*}
+         &a=17 \quad b=19\quad gcd(a,b)=1\\
+         &(x_0,y_0)=(-2,2)
+        \end{align*}
+        General solution follows the form:
+        \[
+           x=-2+t\frac{19}{1}\quad y=2-t\frac{17}{1}
+        \]
+        \boxedeq{}{-2+19t\quad y=2-17t}
+
+        %~~~~~~~~~~~~~~~~~~~~~~
+        \item \textbf{15x+51y=41}
+        \begin{align*}
+         &a=15 \quad b=51\quad gcd(a,b)=3\\
+         &(x_0,y_0)=N/A
+        \end{align*}
+        General solution follows the form:
+       \[
+       x=x_0+t\frac{51}{3}\quad y=y_0-t\frac{15}{3}
+       \]
+        \boxedeq{}{ x=x_0+17t\quad y=y_0-5t}
+        There do not exist integer solutions to the this equation.
+        this is because the gcd 3 does not divide 41
+        %~~~~~~~~~~~~~~~~~~~~~~
+        \item \textbf{23x+29y=25}
+        \begin{align*}
+         &a=23 \quad b=29\quad gcd(a,b)=1\\
+         &(x_0,y_0)=(9,-7)
+        \end{align*}
+        General solution follows the form:
+        \[
+           x=9+t\frac{29}{1}\quad y=-7-t\frac{23}{1}
+        \]
+        \boxedeq{}{ x=9+29t\quad y=-7-23t}
+        %~~~~~~~~~~~~~~~~~~~~~~
+        \item \textbf{10x-8y=42}
+        \begin{align*}
+         &a=10 \quad b=8\quad gcd(a,b)=2\\
+         &(x_0,y_0)=(-6,-8)
+        \end{align*}
+        General solution follows the form:
+        \[
+           x=-6+t\frac{8}{2}\quad y=-8-t\frac{10}{2}
+        \]
+        \boxedeq{}{x=-6+4t\quad y=-8-5t}
+        %~~~~~~~~~~~~~~~~~~~~~~
+        \item \textbf{121x-88y=572}
+        \begin{align*}
+         &a=121 \quad b=-88\quad gcd(a,b)=11\\
+         &(x_0,y_0)=N/A
+        \end{align*}
+        General solution follows the form:
+       \[
+       x=x_0+t\frac{-88}{11}\quad y=y_0-t\frac{121}{11}
+       \]
+        \boxedeq{}{ x=x_0+-8t\quad y=y_0-11t}
+        There do not exist integer solutions to the this equation.  This is because the gcd does not divide the number 572
+    \end{enumerate}
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \setItemnumber{9}
+  \item Experiment with the \sage command {\tt divmod}.
+  Use it with two arguments, say a 6-digit and a 3-digit number, and check that \sage gives the correct answer.
+
+  sage: divmod(146329, 846)\\
+  $\left(172, 817\right)$
+  \begin{proof}
+$172*846+817=145512+817=146329$\\
+  \end{proof}
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \setItemnumber{10}
+  \item Experiment with the \sage command {\tt xgcd}.
+  Use it with two 5-digit arguments and check that \sage gives the correct answer.
+
+  sage: xgcd(40921,33333)\\
+  (271, 22, -27)
+  \begin{proof}
+$
+271=(22)(40921)+(-27)(33333)$
+  \end{proof}
+
+
+\end{enumerate}
+\begin{center}
+  \Large{Worksheet 2: Primes}
+\end{center}
+
+\begin{enumerate}
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item Let $a, b \in \Z_{ >0 }$.
+Show that, if $g = \gcd(a,b)$ then $\gcd(\frac a g, \frac b g) = 1$.
+
+\begin{proof}
+    Let $a, b \in \Z$ and $g = gcd(a,b)$, then \\
+
+    $a = g \cdot i, i \in \Z$ and $b = g \cdot j, j \in \Z$ \\ \\
+    $\frac{a}{g}= i$ and $\frac{b}{g} = j$ \\
+
+    Now we will prove by contradiction that i and j have a gcd of 1. \\
+
+    Suppose $\gcd(i, j) = g_{ij} > 1$ then $i = g_{ij} \cdot c_i$ and $j = g_{ij} \cdot c_j$ where $ c_i, c_j \in \Z$ \\
+
+    Then $a = (g \cdot g_{ij}) \cdot c_i$ and $b = (g \cdot g_{ij}) \cdot c_j$ \\
+
+    But then $(g \cdot g_{ij}) | a$ and $(g \cdot g_{ij}) | b$ and
+    $(g \cdot g_{ij}) > g$ which is a contradiction since $g = gcd(a,b)$ \\ \\
+    So $\gcd(i,j)$ has to be one. \\ \\
+    So $\gcd(\frac{a}{g}, \frac{b}{g}) = 1$
+\end{proof}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item Give a careful definition of a \emph{prime number}.\\
+$P \in \N_{ >1 }$ is prime if its only positive divisors are  1  and P\\\\
+% I edited this just now after reading the text a little bit from +- 1 or p to just positive 1 and p since that is the def in the book ¯\_(ツ)_/¯ let me know if you disagree
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item Let $a, b, c \in \Z_{ >0 }$.
+  \begin{enumerate}
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \item Prove that, if $a \mid bc$ and $\gcd(a,b) = 1$, then $a \mid c$.
+   \begin{proof}
+If $a\mid c$, then we know that $\exists j \in \Z :$ \newline
+
+$bc=ja$ \newline
+
+We also know that if $gcd(a,b)=1, \exists x,y \in \Z :$ \newline
+
+$ax+by=1$ \newline
+
+Suppose we multiply both sides by $c :$ \newline
+
+$axc+byc=c$ \newline
+
+This can be rewritten as \newline
+
+$axc+(aj)c=c$ (hence, $bc=aj$) \newline
+
+$\therefore a(xc+jc)=c$ \newline
+
+By letting $xc+jc=q, q \in \Z$ \newline
+
+$a(q)=c \therefore a\mid c$
+  \end{proof}
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \item Conclude that if $p$ is prime and $p \mid ab$, then $p \mid a$ or $p \mid b$.
+   \begin{proof}
+If $p\mid ab, \exists j \in \Z : ab=pj$ \newline
+
+Suppose by contradiction that $p\nmid a$ and $p\nmid b :$\newline
+
+$gcd(p,a)=1$ and $gcd(p,b)=1 : \exists x,x_0,y,y_0 \in \Z :$\newline
+
+$px+ay=1$ and $px_0+by_0=1$ (hence, from part a)\newline
+
+$\therefore (px+ay) \bullet (px_0+by_0)=1$\newline
+
+$\therefore p^2xx_0+pxby_0+aypx_0+ayby_0=1$\newline
+
+$\therefore p(pxx_0+xby_0+ayx_0)+ab(yy_0)=1$\newline
+
+$\therefore gcd(p,ab)=1$\newline
+
+This is a contradiction $\therefore p\mid a$ and $p\mid b$
+  \end{proof}
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \item Give a counterexample that shows the previous sentence is wrong if $p$ is not prime.
+   \begin{proof}
+Suppose $p=10, a=5,$ and $b=4 : p\nmid 5$ and $p\nmid 4$\newline
+
+$10\mid (5)(4)=20 \therefore p\mid 20 \therefore p\mid ab$\newline
+
+This means that if $p\mid ab$, it is possible that $p\nmid a$ and $p\nmid b$
+  \end{proof}
+  \end{enumerate}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{enumerate}
+\end{document}
