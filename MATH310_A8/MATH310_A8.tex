@@ -1,0 +1,219 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb,latexsym,amsmath,amsthm,graphicx, cite}
+\author{Chris Camano: ccamano@sfsu.edu}
+\title{MATH 310  Homework 7 }
+\date
+
+\usepackage[many]{tcolorbox}
+\tcbset{breakable}
+\usepackage{mathptmx}
+\usepackage{multirow}
+\usepackage{float}
+\restylefloat{table}
+\hoffset=0in
+\voffset=-.3in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=0in
+\textwidth=6.5in
+\textheight=8.8in
+\marginparwidth 0pt
+\marginparsep 10pt
+\headsep 10pt
+
+\theoremstyle{definition}  % Heading is bold, text is roman
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{defn}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{proposition}{Proposition}
+
+
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\lcm}{\mathrm{lcm}}
+\setlength{\parskip}{0cm}
+%\renewcommand{\thesection}{\Alph{section}}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection}}
+\bibliographystyle{amsplain}
+
+%\input{../header}
+\newcommand{\bigline}{\\\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}\\}
+
+\newcommand{\block}[2]{\begin{tcolorbox}[title={#1}]{#2}\end{tcolorbox}}
+\begin{document}
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\block{Question 2.2.2}{Using the technique described in example 2-8 find the gcd of 299 and 481. Then find integers x and y such that:
+\[
+  299x+481y=d
+\]
+}
+\begin{proof}
+  \begin{align*}
+    &481 = 1 \times 299 + 182\\\\
+    &299 = 1  \times 182 + 117\\\\
+    &182 = 1  \times 117 + 65\\\\
+    &117 = 1  \times65 + 52\\\\
+    &65 = 1  \times 52 + 13\\\\
+    &52 = 4  \times 13 + 0\\
+  \end{align*}
+Therefore gcd(299,481)=13 by the euclidian algorithm. Now to satisfy the linear diophantine equation:
+\[
+    299x+481y=13
+\]
+We do the following:
+\begin{align*}
+    &13=65- 52(1)  \\
+    &13=65-1(117-65(1))\\
+    &13=65-((299-(182))-(182-117))\\
+    &13=65-((299-(481-299))-((481-299)-(299-(481-299))))\\
+    &13=65-((299-481+299)-(481-299-299+481-299))\\
+    &13=65-(299-481+299-481+299+299-481+299))\\
+    &13=65-5(299)+3(481))\\
+    &13=(481-299)-(299-182)-5(299)+3(481))\\
+    &13=(481-299)-(299-(481-299))-5(299)+3(481))\\
+    &13=481-299-299+481-299-5(299)+3(481))\\
+    &13=-8(299)+5(481))\\
+\end{align*}
+Meaning that:
+\[
+  (x_0,y_0)=(-8,5)
+\]
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\block{Question 2.3.5}{Prove that if ($x_0.y_0$ is a solution of the linear Diophantine equation $ax-by=1$ then the area of the triangle whose vertices are (0,0),(b,a), and ($x_0,y_0$) is $\frac{1}{2}$}
+\begin{proof}
+The area of a triangle centered at the orgin with points(b,a),($x_0,y_0)$can be computed with the following formula:
+\[
+A=  \left|\frac{1}{2}\det\begin{bmatrix}
+    x_0&b\\y_0&a
+  \end{bmatrix}\right|
+\]
+Since the determinant over the two vectors computes the area of the total parallelogram formed( cross product of two vectors). Here by adding a coefficient of one half we obtain the desired triangle as it does not matter which way we divide a parallelogram in half the resulting area will be equivilant to the desired triangle formed by the problem statement. Im essentially arguing here that if:
+\[
+  \vec{v_1}=\begin{bmatrix}
+    x_0\\y_0
+\end{bmatrix},
+\vec{v_2}=\begin{bmatrix}
+  b\\a
+\end{bmatrix},
+\vec{v_3}=\vec{v_1}+\vec{v_2}
+\].\\\\
+That dividing $v_1\times v_2$ along the line segment formed by $\vect{v_1}$ and $\vec{v_2}$ is equivilant to dividing $v_1\times v_2$ along the origin and $\vec{v_3}$\\
+Since:
+\[
+  A=\left|\frac{1}{2}\det\begin{bmatrix}
+    x_0&y_0\\b&a
+  \end{bmatrix}\right|=\frac{1}{2}ax_0-by_0
+\]
+and we have that:
+\[
+  ax_0-by_0=1
+\]
+this gives:
+\[
+A=  \left|\frac{1}{2}\det\begin{bmatrix}
+    x_0&y_0\\b&a
+  \end{bmatrix}\right|=\frac{1}{2}(1)=\frac{1}{2}
+\]
+This formula is further generalized for triangles not centered at the origin by using a homogenous coordinate representation in three dimensions. If one of our points happens to be the origin then we are able to reduce the formula down to its current form since the matrix formed becomes simply the homogenous representation of a smaller matrix.\\
+For this proof I openly referenced a research paper published by Clark University pertaining to history and application of the determinant in the context of computing area of parallelograms or volume of parallelopipeds
+
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\block{Question 6.4.1}{ Prove that if $$\sigma_k(n)=\sum_{d|n}d^k$$ then $\sigma_k(n)$ is multiplicative. }
+
+\begin{proof}
+Note here that:
+\[
+  \{\sigma_k(n),n^k\}
+\]
+forms a mobius pair since:
+\[
+  \sigma_k(n)=\sum_{d|n}d^k
+\]
+Since by theorem 6-7 we have the fact that if one of the functions in  the mobius pair is multiplicative so is the other we will draw our attention to the easier of the two: $n^k$:
+\\
+$n^k$ is multiplicative since$ \forall m,n \in \Z$
+\[
+  (mn)^k=m^kn^k
+\]
+by properties of exponents so since $n^k$ is multiplicative we then conlcude that $\sigma_k(n)$ is also multiplicative.\end{proof}\\\\\textbf{ I am not 100\% certain I have use the mobius pair arugment correctly so I also offer an additional proof:}
+\begin{proof}
+  We wish to show that: \[
+    \sigma_k(mn)=\sigma_k(m)\sigma_k(n)=\sum_{d|m}d^k\sum_{d|n}d^k
+  \]
+  We know from previous proofs that for :
+  \[
+      g(n)=\sum_{d|n}f(d)
+  \]
+  if f is multiplicative then so is g. Here with the sigma function this becomes readily evident. Consider the following: for coprime m and n
+\[
+  \sigma_k(mn)=\sum_{d_1|m,d_2|m}(d_1d_2)^k
+\]
+Each individual$(d_1d_2)^k$ is equal to $d_1^kd_2^k$ by properties of exponents ( multiplicativity of $n^k$ in disguise) meaning
+\[
+    \sigma_k(mn)=\sum_{d_1|m,d_2|m}d_1^kd_2^k=\sum_{d|m}d^k\sum_{d|n}d^k=\sigma_k(m)\sigma_k(n)
+\]
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\block{Question 6.4.2}{ Prove that if f(n) is multiplicative then:
+\[
+  \sum_{d|n}\mu(d)f(d)=\prod_{p|n}{1-f(p)}
+\]}
+\begin{proof}
+To Prove this statment I will proceed with induction on the number of prime factors: \\
+\begin{enumerate}
+  \item \block{\textbf{Base case:}:}{\\
+  for n=$q^k$
+  \[
+    \sum_{d|n}\mu(d)f(d)=\prod_{p|n}{1-f(p)}=(1-f(q))
+  \]
+  \begin{proof}
+    \begin{align*}
+      &\sum_{d|n}\mu(d)f(d)=\mu(1)f(1)+\mu(q)f(q)+\mu(q^2)f(q^2)+\cdots+\mu(q^k)f(q^k)\\
+      &\sum_{d|n}\mu(d)f(d)=1-f(q)
+    \end{align*}
+  Note that here $f(1)=1$ by definition of multiplicative function.
+\end{proof}}
+\item\block{ \textbf{Inductive Step:}}{
+  \[
+    \sum_{d|n}\mu(d)f(d)=\prod_{p|n}{1-f(p)}
+  \]
+  when n has k or less prime factors: \\
+
+   Assume our statment to be true for each integer with k or fewer prime factors, Suppose $n=n^*p^{\alpha}$ where n has k prime factors and $p\nmid n^*$\\
+   \[
+     n^*=\prod_{i=1}^kq_i^{\alpha_i}
+   \]
+   by FTA.\\\\
+   \textbf{Solving left hand side}
+   \begin{align*}
+     &\sum_{d|n}\mu(d)f(d)\\
+     &=\sum_{d|n^*}\mu(d)f(d)+\sum_{d|n^*}\mu(pd)f(pd)+\sum_{d|n^*}\mu(p^2d)f(p^2d)+\cdots +\sum_{d|n^*}\mu(p^{\alpha}d)f(p^{\alpha}d)\\\\
+     &=\sum_{d|n^*}\mu(d)f(d)+\sum_{d|n^*}\mu(pd)f(pd)+0\cdots+0\\\\
+     &=\left[\prod_{i=1}^k(1-f(q_i))\right]-f(p)\sum_{d|n^*}\mu(d)f(d) \quad \text{Since f is multiplicative, and using our lemma  }\\\\
+     &=\left[\prod_{i=1}^k(1-f(q_i))\right]-f(p)\left[\prod_{i=1}^k(1-f(q_i))\right]\\\\
+     &=\left[\prod_{i=1}^k(1-f(q_i))\right](1-f(p))
+   \end{align*}
+    \textbf{Solving right hand side}:\\
+    \begin{align*}
+      &\prod_{p|n}(1-f(p))=\prod_{i|n^*p}(1-f(i))\\
+      &=\left[\prod_{i|n^*}(1-f(i))\right](1-f(p))\\
+      &=\left[\prod_{i=1}^k(1-f(q_i))\right](1-f(p))
+    \end{align*}
+    }
+\end{enumerate}
+
+Here we observe that since for k+1 distinct primes our left hand side is equivilant to our right hand side we demonstrate eequivilancy through mathematical induction.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
